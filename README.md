@@ -1,2 +1,2 @@
 # UlbwaasCryptor
-AES-шифровальщик на Golang
+AES-шифровальщик, написанный на Golang за час для проекта [Ульбы](t.me/ulbwaa)

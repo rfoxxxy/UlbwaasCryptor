@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"os"
-	"time"
 )
 
 var (
@@ -16,8 +15,7 @@ var (
 func workLogic(action1 string) {
 	switch action1 {
 	case "1":
-		var filename string
-		var outfile string
+		var filename, outfile string
 		fmt.Println("\nEncrypting\n ")
 		fmt.Print("Enter path to file: ")
 		fmt.Fscan(os.Stdin, &filename)
@@ -55,14 +53,14 @@ func workLogic(action1 string) {
 		printLog("Done. Encrypted " + filename + " with key " + KeyText)
 		fmt.Println("Done. Key to decrypt:", KeyText)
 	case "2":
-		var deckey string
-		var filename string
+		var deckey, filename, outname string
 		fmt.Println("\nDecrypting\n ")
-		_ = os.Remove("output_decrypted.txt")
 		fmt.Print("Enter file path: ")
 		fmt.Fscan(os.Stdin, &filename)
 		fmt.Print("Enter decryption key: ")
 		fmt.Fscan(os.Stdin, &deckey)
+		fmt.Print("Enter output filename: ")
+		fmt.Fscan(os.Stdin, &outname)
 		data, err := ioutil.ReadFile(filename)
 		if err != nil {
 			fmt.Println("File reading error", err)
@@ -85,9 +83,9 @@ func workLogic(action1 string) {
 			printLog("Error while decrypting " + fmt.Sprintf("%v", err))
 			return
 		}
-		fmt.Println("Writing decrypted text to output_decrypted.txt...")
-		printLog("Writing decrypted content to out file...")
-		output, err := os.Create("output_decrypted.txt")
+		fmt.Println("Writing decrypted text to", outname+"...")
+		printLog("Writing decrypted content to " + outname + "...")
+		output, err := os.Create(outname)
 
 		if err != nil {
 			fmt.Println("Unable to create file:", err)
@@ -103,11 +101,14 @@ func workLogic(action1 string) {
 		printLog("Exiting due to user choice")
 		return
 	default:
+		ClearTerminal()
 		fmt.Println("Invalid option selected.")
 		mainMenu()
 		return
 	}
-	time.Sleep(999 * time.Second)
+	printLog("Returning to main menu")
+	mainMenu()
+	return
 }
 
 func main() {

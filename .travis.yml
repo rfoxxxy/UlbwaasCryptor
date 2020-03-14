@@ -1,0 +1,6 @@
+language: go
+go:
+  - master
+before_script:
+  - go get github.com/mitchellh/gox
+script: gox

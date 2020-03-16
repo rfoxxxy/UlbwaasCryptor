@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/rfoxxxy/UlbwaasCryptor.svg?branch=master)](https://travis-ci.org/rfoxxxy/UlbwaasCryptor)
 
-AES-шифровальщик, написанный на Golang за час для проекта [Ульбы](t.me/ulbwaa)
+AES-шифровальщик, написанный на Golang за час для проекта [Ульбы](https://t.me/ulbwaa)
 
 # Компиляция исходников
 
@@ -23,4 +23,4 @@ gox
 
 # Поддержка
 
-Поддержать создателя можно копеечкой вот [тут](rfoxxxy.ml/donate), а так же купив подписку вот [тут](rsdev.ml/profile/subscription)
+Поддержать создателя можно копеечкой вот [тут](https://rfoxxxy.ml/donate), а так же купив подписку вот [тут](http://rsdev.ml/profile/subscription)
